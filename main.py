@@ -10,7 +10,7 @@ def say(text):
 def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        r.pause_threshold =  1
+        r.pause_threshold = 1
         audio = r.listen(source)
         try:
             print("Recognizing...")
@@ -27,12 +27,8 @@ if __name__ == '__main__':
     while True:
         print("Listening...")
         query = takeCommand()
-        sites = [["youtube","https://www.youtube.com"],["wikipedia","https://www.wikipedia.com"],["google","https://www.google.com"],["aniwatch","https://www.aniwatchtv.to"],]
+        sites = [["youtube","https://www.youtube.com"],["wikipedia","https://www.wikipedia.com"],["google","https://www.google.com"],["aniwatch","https://www.aniwatchtv.to"]]
         for site in sites:
             if f"Open {site[0]}".lower() in query.lower():
                 say("Yes Boss")
                 webbrowser.open(site[1])
-
-
-        #say(query)
-
