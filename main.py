@@ -3,19 +3,24 @@ import speech_recognition as sr
 import os
 import webbrowser
 import pyttsx3  # For cross-platform text-to-speech
+import datetime
+import subprocess
+from tkinter import *
 
 
-def say(text):
+
+
+
+def say(text):#         A command used to say out things
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
 
-
-def takeCommand():
+def takeCommand():#     A command used to take voice commands
     r = sr.Recognizer()
     with sr.Microphone() as source:
         r.adjust_for_ambient_noise(source, duration=1)
-        r.pause_threshold = 1
+        r.pause_threshold = 0.8
         print("Listening...")
         audio = r.listen(source)
         
@@ -30,15 +35,19 @@ def takeCommand():
         print(f"Error: {e}")  # Print actual error for debugging
         return "Some error occurred.. Sorry"
 
-def storeCommand(query):
+def storeCommand(query):#  A command used to store user commands
     l = []
     if query == True:
         l.append(query)
     else:
         pass
-
-
-if __name__ == '__main__':
+        
+        
+      
+if __name__ == '__main__':#  Main program starts from here
+    
+    root = Tk()
+    w = Label(root,text = "Hello I am Seno A.I.")
     print("Pycharm")
     say("Hello, I am SENO A.I.")
     
@@ -65,23 +74,38 @@ if __name__ == '__main__':
         if "some error" in query.lower():
             continue  # Skip iteration if an error occurred
         
-        elif "search" in query.lower():
+        #Making the program search for things on the internet..
+        if "search" in query.lower():
             query
             se = query.lower().split()
             se.remove("search")
             schr = ""
-            for i in se:
-                schr = schr + i + "+"
+            for info in se:
+                schr = schr + info + "+"
             webbrowser.open(f"https://www.google.com/search?q={schr}")
             
-            
-        elif "quit" in query.lower():
+        #Making the program quit when asked    
+        if "end process" in query.lower():
             break
         
+        
+        #Getting time and date 
+        '''if "time" in query.lower:
+            say(f"Its {datetime.datetime.now().strftime("%H:%M:%S")}")
+        #elif "date and time in query.lower":
+            #say(f"Its {datetime.datetime.now().}")'''
+            
+            
+        
+
+
+
             
         for site in sites:
             if f"open {site[0]}".lower() in query.lower():
                 say("Yes Boss, opening " + site[0])
                 webbrowser.open(site[1])
                 #storeCommand(query)
-                
+        
+        
+        
