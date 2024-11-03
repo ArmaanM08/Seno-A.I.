@@ -8,11 +8,13 @@ Note:
 
 Please install these modules using the terminal(use pip or pip3 as per your python version.)
 
-1. pip3 install speechrecgnition _____
-2. pip3 install openai                |
-3. pip3 install pyaudio               |
-4. pip3 install wikipedia             |--->these modules are important or else the program won't run
-5. 5. pip3 install pyttsx3____________|
+1. pip3 install speechrecgnition
+2. pip3 install openai
+3. pip3 install pyaudio
+4. pip3 install wikipedia
+5. pip3 install pyttsx3
+6. pip3 install datetime(may be required)
 
 
 V1. Currently this tool can act as a basic assistant which can open any website or search anything in google.
+Addon - Sun, 3rd-Nov-2024  Added date time feature(experimental).
