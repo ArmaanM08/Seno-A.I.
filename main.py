@@ -9,8 +9,6 @@ from tkinter import *
 
 
 
-
-
 def say(text):#         A command used to say out things
     engine = pyttsx3.init()
     engine.say(text)
@@ -67,12 +65,26 @@ if __name__ == '__main__':#  Main program starts from here
         ["whatsapp", "https://www.whatsapp.com"],
         ["quora", "https://www.quora.com"],
         ["twitch", "https://www.twitch.tv"]]
+    
+    apps = [['Brave','/Applications.Brave Brower.app'],['Calendar','/Applications.Calendar.app']]
 
 
     while True:
         query = takeCommand()
         if "some error" in query.lower():
             continue  # Skip iteration if an error occurred
+        
+        
+        for site in sites:
+            if f"open {site[0]}".lower() in query.lower():
+                say("Yes Boss, opening " + site[0])
+                webbrowser.open(site[1])
+                #storeCommand(query)
+        for app in apps:
+            if f"open {app[0]}".lower() in query.lower():
+                say("Yes Boss, opening" + app[0])
+                subprocess.Popen(f"open",{app[1]})
+                
         
         #Making the program search for things on the internet..
         if "search" in query.lower():
@@ -84,28 +96,15 @@ if __name__ == '__main__':#  Main program starts from here
                 schr = schr + info + "+"
             webbrowser.open(f"https://www.google.com/search?q={schr}")
             
-        #Making the program quit when asked    
-        if "end process" in query.lower():
-            break
         
         
         #Getting time and date 
-        '''if "time" in query.lower:
-            say(f"Its {datetime.datetime.now().strftime("%H:%M:%S")}")
-        #elif "date and time in query.lower":
-            #say(f"Its {datetime.datetime.now().}")'''
+        if "time" in query.lower():
+            say(f"Its {datetime.datetime.now().strftime("%H:%M")}")
+        elif "date and time in query.lower":
+            say(f"Its {datetime.datetime.now().strftime("%d-%m-%Y %H:%M")}")
             
-            
-        
-
-
-
-            
-        for site in sites:
-            if f"open {site[0]}".lower() in query.lower():
-                say("Yes Boss, opening " + site[0])
-                webbrowser.open(site[1])
-                #storeCommand(query)
-        
-        
+        #Making the program quit when asked    
+        if "end process" in query.lower():
+            break
         
