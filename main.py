@@ -5,8 +5,6 @@ import webbrowser
 import pyttsx3  # For cross-platform text-to-speech
 import datetime
 import subprocess
-from tkinter import *
-
 
 
 def say(text):#         A command used to say out things
@@ -43,10 +41,7 @@ def storeCommand(query):#  A command used to store user commands
         
       
 if __name__ == '__main__':#  Main program starts from here
-    
-    root = Tk()
-    w = Label(root,text = "Hello I am Seno A.I.")
-    print("Pycharm")
+
     say("Hello, I am SENO A.I.")
     
     sites = [
@@ -107,4 +102,17 @@ if __name__ == '__main__':#  Main program starts from here
         #Making the program quit when asked    
         if "end process" in query.lower():
             break
+        
+        
+        
+            
+            
+        
+
+
+
+            
+        
+        
+        
         
