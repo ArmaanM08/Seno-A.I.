@@ -18,3 +18,6 @@ Please install these modules using the terminal(use pip or pip3 as per your pyth
 
 V1. Currently this tool can act as a basic assistant which can open any website or search anything in google.
 Addon - Sun, 3rd-Nov-2024  Added date time feature(experimental).
+
+Added Feature====>
+A simple UI design.(Not functioning but a concept of it)
